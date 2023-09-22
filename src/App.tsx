@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import "./App.css";
+import { QueryClient, QueryClientProvider } from "react-query";
+import HomePage from "./pages/HomePage";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const queryClient = new QueryClient();
+
+const theme = createTheme({
+	palette: {
+		primary: {
+			main: "#6713EF",
+		},
+	},
+});
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<QueryClientProvider client={queryClient}>
+			<ThemeProvider theme={theme}>
+				<HomePage />;
+			</ThemeProvider>
+		</QueryClientProvider>
+	);
 }
 
 export default App;
