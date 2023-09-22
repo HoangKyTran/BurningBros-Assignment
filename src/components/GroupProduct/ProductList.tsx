@@ -4,7 +4,7 @@ import { Box, Collapse, Typography } from "@mui/material";
 import { ArrowDown, ArrowRight } from "../../icons/Icons";
 import Product from "./Product";
 import { parseCategoryName } from "../../utils/product";
-import useProductStore from "../../zustand/editProductStore";
+import useEditProductStore from "../../zustand/editProductStore";
 import { useClickAway } from "../../hooks/useClickAway";
 import { useQueryClient } from "react-query";
 import useSearchStore from "../../zustand/searchStore";
@@ -21,7 +21,7 @@ const ProductList = ({ groupedProduct }: Props): JSX.Element => {
 	const [categoryCollapse, setCategoryCollapse] = useState<string | null>(null);
 	const queryClient = useQueryClient();
 	const { search } = useSearchStore();
-	const { product, setProduct } = useProductStore();
+	const { product, setProduct } = useEditProductStore();
 	const productRef = useClickAway(() => {
 		queryClient.setQueryData(
 			["products", { search }],

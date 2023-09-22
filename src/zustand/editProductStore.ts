@@ -5,7 +5,7 @@ interface EditProductStore {
 	setProduct: (productID: Product | null) => void;
 }
 
-const useProductStore = create<EditProductStore>((set) => ({
+const useEditProductStore = create<EditProductStore>((set) => ({
 	product: null,
 	setProduct: (product) =>
 		set((state) => ({
@@ -14,4 +14,4 @@ const useProductStore = create<EditProductStore>((set) => ({
 		})),
 }));
 
-export default useProductStore;
+export default useEditProductStore;

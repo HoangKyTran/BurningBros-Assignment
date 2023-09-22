@@ -2,14 +2,14 @@ import React, { forwardRef } from "react";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import { Box, TextField } from "@mui/material";
 import { formatPrice } from "../../utils/product";
-import useProductStore from "../../zustand/editProductStore";
+import useEditProductStore from "../../zustand/editProductStore";
 
 interface ProductProps {
 	product: Product;
 }
 
 const Product = forwardRef(({ product }: ProductProps, ref): JSX.Element => {
-	const { product: zProduct, setProduct } = useProductStore();
+	const { product: zProduct, setProduct } = useEditProductStore();
 	const isClicking = zProduct?.id === product.id;
 
 	const handleClickProduct = (e: React.MouseEvent<HTMLDivElement>): void => {
