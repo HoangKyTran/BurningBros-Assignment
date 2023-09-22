@@ -5,7 +5,6 @@ export const useClickAway = (callback: () => void): React.RefObject<HTMLDivEleme
 
     useEffect(() => {
         const handleClickAway = (event: MouseEvent) => {
-            console.log("🚀:", { target: event.target, ref: ref?.current, bool: ref?.current?.contains(event.target as Node) });
             if (ref.current && !ref.current.contains(event.target as Node)) {
                 callback();
             }
